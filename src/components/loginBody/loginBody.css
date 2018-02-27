@@ -1,0 +1,97 @@
+.loginBox{
+  display: flex;
+  height: 45%;
+  width: 60%;
+  background-color: white;
+  margin-bottom: 20px;
+}
+.LoginBody-main{
+display: flex;
+width: 100%;
+height: 100%;
+background-color:	#16214E;
+justify-content: center;
+align-items: center;
+}
+.welcome-div{
+  background-color: #44C7F5;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.welcome{
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.to{
+  font-family:  Helvetica, Arial, sans-serif;
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.quizzy{
+  font-family:  Helvetica, Arial, sans-serif;
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.login-div{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.login{
+  font-family:  Helvetica, Arial, sans-serif;
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+.username{
+  font-family:  Helvetica, Arial, sans-serif;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.textArea{
+  width: 85%;
+  height: 40px;
+  margin-left: 30px;
+  border: 3px solid black;
+  font-size: 30px;
+  /* margin-bottom: 20px; */
+}
+.username-div{
+  margin-bottom: 20px;
+}
+.login-button{
+  width: 55%;
+  border: 3px solid black;
+  margin-left: 20%;
+  border-radius: 8px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25%;
+}
