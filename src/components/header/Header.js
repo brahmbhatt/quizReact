@@ -9,7 +9,7 @@ export default class Header extends React.Component {
           <p className="title">Quizzy</p>
         </div>
         <div className="Header-user">
-          <p className="user">{this.props.user}</p>
+          <p className="user">{this.props.hello} {this.props.user}</p>
         </div>
       </div>
     );

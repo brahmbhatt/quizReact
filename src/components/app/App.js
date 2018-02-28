@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../header/Header';
 import LoginBody from '../loginBody/LoginBody';
+import QuestionBody from '../questionBody/QuestionBody';
+import LeaderBoard from '../leaderBoard/LeaderBoard';
 import createStore from '../../redux/actions/createStore';
+
 import './app.css';
 
 class App extends React.Component {
@@ -10,7 +13,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       page: 0,
-      ans: 0,
+      user: '',
+      hello: '',
     };
   }
 
@@ -40,8 +44,17 @@ class App extends React.Component {
         }
       });
   }
-  handleOnClick = () => {
-    this.setState({ page: 1 });
+  handleOnClick = (uname) => {
+    console.log('hey user is', uname);
+
+    this.setState({
+      page: 1,
+      user: uname,
+      hello: 'Hello',
+    });
+  }
+  leaderBoard = () => {
+    this.setState({ page: 2 });
   }
   render() {
     if (this.state.page === 0) {
@@ -52,21 +65,33 @@ class App extends React.Component {
         </div>
       );
     }
-    return (
-      <div className="App-mainDiv">
-        hi
-      </div>
-    );
+    if (this.state.page === 1) {
+      return (
+        <div className="App-mainDiv">
+          <Header user={this.state.user} hello={this.state.hello} />
+          <QuestionBody user={this.state.user} leaderBoard={this.leaderBoard} />
+        </div>
+      );
+    }
+    if (this.state.page === 2) {
+      // console.log('useeeeeeeee', this.props.ques);
+
+      return (
+        <div className="App-mainDiv">
+          <Header user={this.state.user} hello={this.state.hello} />
+          <LeaderBoard user={this.state.user} />
+        </div>
+      );
+    }
   }
 }
 const mapDispatchToProps = dispatch => ({
   createStore: obj => dispatch(createStore(obj)),
-
 });
 const mapStateToProps = state => ({
-  ques: state.ques,
-  users: state.users,
-  scores: state.scores,
+  ques: state.reducer.ques,
+  users: state.reducer.users,
+  scores: state.reducer.scores,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 

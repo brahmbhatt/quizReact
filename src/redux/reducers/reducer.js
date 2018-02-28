@@ -17,6 +17,36 @@ const counter = (state = defaultNote, action) => {
         ques,
       });
     }
+    case 'ADDUSER':
+    {
+      const users = action.payload.users;
+      const scores = action.payload.scores;
+      console.log('my store', users);
+
+      return ({
+        ...state,
+        users,
+        scores,
+      });
+    }
+    case 'SAVEANS':
+    {
+      const users = state.users.slice();
+      const qid = action.payload.qid;
+      const option = action.payload.ans;
+      const user = action.payload.user;
+      for (let i = 0; i < users.length; i += 1) {
+        if (users[i].uname === user && users[i].qid === qid) {
+          users[i].ans = option;
+        }
+      }
+      console.log('my store users', users);
+
+      return ({
+        ...state,
+        users,
+      });
+    }
     default:
     {
       return state;

@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './loginBody.css';
+import addUser from '../../redux/actions/addUser';
 
-export default class LoginBody extends React.Component {
+class LoginBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +18,8 @@ export default class LoginBody extends React.Component {
     }).then(data => data.json())
       .then((data) => {
         console.log('user came', data);
-        this.props.login();
+        this.props.login(this.state.textValue);
+        this.props.addUser(data);
       });
   }
   handleChange = (event) => {
@@ -44,3 +47,12 @@ export default class LoginBody extends React.Component {
     );
   }
 }
+const mapDispatchToProps = dispatch => ({
+  addUser: obj => dispatch(addUser(obj)),
+});
+const mapStateToProps = state => ({
+  ques: state.ques,
+  users: state.users,
+  scores: state.scores,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(LoginBody);
