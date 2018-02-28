@@ -56,6 +56,9 @@ class App extends React.Component {
   leaderBoard = () => {
     this.setState({ page: 2 });
   }
+  playAgain = () => {
+    this.setState({ page: 0 });
+  }
   render() {
     if (this.state.page === 0) {
       return (
@@ -79,7 +82,7 @@ class App extends React.Component {
       return (
         <div className="App-mainDiv">
           <Header user={this.state.user} hello={this.state.hello} />
-          <LeaderBoard user={this.state.user} />
+          <LeaderBoard user={this.state.user} playAgain={this.playAgain} />
         </div>
       );
     }

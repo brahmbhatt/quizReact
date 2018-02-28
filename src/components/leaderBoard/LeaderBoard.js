@@ -18,7 +18,7 @@ class LeaderBoard extends React.Component {
       arr.push(<div className="lead-box">
         <div className={this.props.scores[i].uname === this.props.user ? 'unameBlue' : 'uname'}> {this.props.scores[i].uname}</div>
         <div className="score"> {this.props.scores[i].score}</div>
-      </div>);
+               </div>);
     }
     return arr;
   }
@@ -33,7 +33,7 @@ class LeaderBoard extends React.Component {
           {this.sample()}
           <p className="p">leaderBoard</p>
         </div>
-        <button className="play">play Again</button>
+        <button className="play" onClick={this.props.playAgain}>play Again</button>
       </div>
     );
   }
